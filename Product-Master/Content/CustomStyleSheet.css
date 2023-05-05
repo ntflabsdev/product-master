@@ -1,0 +1,168 @@
+﻿#closebtn {
+    position: align-right;
+    border: none;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+    size: -10rem;
+}
+
+header {
+    box-sizing: border-box;
+}
+
+#hh {
+    text-align: center;
+    color: #e9573f;
+    margin-block-start: 10px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#vender {
+    box-sizing: border-box;
+    color: blue;
+}
+
+.openBtn {
+    display: flex;
+    justify-content: left;
+}
+
+.openButton, btn {
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    cursor: pointer;
+    width: 90px;
+}
+
+btn {
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+    padding-top: 10rem;
+    width: 50px;
+    height: 50px;
+}
+
+.loginPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.formPopup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 9%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+}
+
+.formContainer {
+    max-width: 1000px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+    .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: #8ebf42;
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+    }
+
+    .formContainer .cancel {
+        background-color: #cc0000;
+        font-size: 50px;
+    }
+
+    .formContainer .btn:hover, .openButton:hover {
+        opacity: 1;
+    }
+
+.d-grid {
+    font-size: 15px;
+    background-color: #e9573f;
+    padding: 2px;
+    height: 4.5rem;
+    text-align: center;
+}
+
+.container1-fluid {
+    height: 55px;
+}
+
+footer {
+    height: auto;
+    background-color: lightblue;
+}
+
+.mg {
+    border-radius: 6rem;
+}
+
+.footer-cont {
+    background: #132646;
+    color: #9fb5d9;
+    padding: 10px 0 10px 0;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 35%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+

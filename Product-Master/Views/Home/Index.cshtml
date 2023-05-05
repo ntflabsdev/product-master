@@ -1,0 +1,136 @@
+﻿@model Product_Master.Models.files
+@{
+    ViewBag.Title = "Home Page";
+}
+<style>
+    .row {
+        margin-bottom: 10px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+    .container{
+        text-align:center;
+        
+    }
+    .DDL_Custom{
+        width:180px;
+        height:35px;
+        border:2px;
+    }
+    .btn-success1 {
+        text-align: center;
+        margin: auto;
+        color: #fff;
+        background-color: #69ba71;
+        border-color: #4d6066ee;
+        
+        width: 120px;
+        height: 45px;
+    }
+
+    h3{
+        color:#f37860;
+        margin: 5px;
+        text-align:center
+    }
+    
+    
+</style>
+<h3>Add Product Details</h3>
+<div class="container">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="form-horizontal">
+            @if (ViewBag.Message != null)
+            {
+                <span>
+                    @ViewBag.Message
+                </span>
+            }
+        </div>
+        <div>
+            @Html.HiddenFor(model => model.Id)
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-2">Product_Name</div>
+            <div class=" col-md-4">
+                @Html.TextBoxFor(model => model.Product_Name, new { @class = "form-control" })
+            </div>
+            
+            <div class="col-md-2">Grade</div>
+            <div class=" col-md-4">
+                @Html.TextBoxFor(model => model.Grade, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Unit_Of_Measurment</div>
+            <div class=" col-md-4">
+                @Html.TextBoxFor(model => model.Unit_Of_Measurment, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2">Hs_code</div>
+            <div class=" col-md-4">
+                @Html.TextBoxFor(model => model.HS_Code, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Manufacture</div>
+            <div class=" col-md-4">
+                @Html.TextBoxFor(model => model.Manufacturer, new { @class = "form-control" })
+        </div>
+            <div class="col-md-2">Country</div>
+            <div class="col-md-4">
+              
+                @Html.DropDownListFor(model => model.Country, new List<SelectListItem>
+                {
+                 new SelectListItem{Text="India",Value="India"},
+                 new SelectListItem{Text="ALBANIA",Value="ALBANIA"},
+                 new SelectListItem{Text="ANGOLA",Value="ANGOLA"},
+                 new SelectListItem{Text="ALGERIA",Value="ALGERIA"},
+                 new SelectListItem{Text="BAHAMAS,",Value="BAHAMAS"},
+                 new SelectListItem{Text="BAHRAIN",Value="BAHRAIN"},
+                 new SelectListItem{Text="BANGLADESH",Value="BANGLADESH"},
+                 new SelectListItem{Text="BARBADOS",Value="BARBADOS"},
+                 new SelectListItem{Text="BELARUS",Value="BELARUS"},
+                 new SelectListItem{Text="BELGIUM",Value="BELGIUM"},
+                 }, new { @class = "DDL_Custom" })
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">TDS</div>
+            <div class="col-md-4">
+                <input type="file" name="TDS_File" id="TDS_File"/>
+            </div>
+            <div class="col-md-2">MSDS</div>
+            <div class="col-md-4">
+                <input type="file" name="MSDS_File" id="MSDS_File"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Free_Trade_Agreement</div>
+             <div class="col-md-4">
+                <input type="file" name="FTA_File" id="FTA_File"/>
+            </div>
+            <div class="col-md-2">Image</div>
+             <div class="col-md-4">
+                <input type="file" name="ImageFile"accept="Image/*"/>
+            </div>
+        </div>
+        <div class="row"></div>
+        <hr/>
+
+            <div class="row">
+                <div style="text-align:center">
+                    <input type="submit" class="btn-success1" />
+                </div>
+            </div>
+        
+
+
+    }
+
+</div>
+
+

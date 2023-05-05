@@ -1,0 +1,597 @@
+<!Doctype html>
+
+<html lang="en">
+<head>
+
+
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-responsive.css">
+
+<!-- Bootstrap CSS -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+	integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+
+<title>Product_Master</title>
+<style>
+
+
+#closebtn {
+	position: align-right;
+	border: none;
+	color: white;
+	padding: 6px;
+	cursor: pointer;
+	size: -10rem;
+}
+
+header {
+	box-sizing: border-box;
+}
+
+#hh {
+	text-align: center;
+	color: #e9573f;
+}
+
+#vender {
+	box-sizing: border-box;
+	color: blue;
+}
+
+.openBtn {
+	display: flex;
+	justify-content: left;
+}
+
+.openButton, btn {
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	background-color: #1c87c9;
+	color: white;
+	padding: 6px;
+	cursor: pointer;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 90px;
+}
+
+btn {
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	background-color: #1c87c9;
+	color: white;
+	padding: 6px;
+	cursor: pointer;
+	padding-top: 10rem;
+	width: 50px;
+	height: 50px;
+}
+
+.loginPopup {
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.formPopup {
+	display: none;
+	position: fixed;
+	left: 50%;
+	top: 9%;
+	transform: translate(-50%, 5%);
+	border: 3px solid #999999;
+	z-index: 9;
+}
+
+.formContainer {
+	max-width: 1000px;
+	padding: 20px;
+	background-color: #fff;
+}
+
+.formContainer .btn {
+	padding: 12px 20px;
+	border: none;
+	background-color: #8ebf42;
+	color: #fff;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 15px;
+	opacity: 0.8;
+}
+
+.formContainer .cancel {
+	background-color: #cc0000;
+	font-size: 50px;
+}
+
+.formContainer .btn:hover, .openButton:hover {
+	opacity: 1;
+}
+
+.d-grid {
+	font-size: 15px;
+	background-color: #e9573f;
+	padding: 2px;
+	height: 4.5rem;
+	text-align: center;
+}
+
+.container1-fluid {
+	height: 55px;
+}
+
+footer {
+	height: auto;
+	background-color: lightblue;
+}
+
+.mg {
+	border-radius: 6rem;
+}
+
+.footer-cont {
+	background: #132646;
+	color: #9fb5d9;
+	padding: 20px 0 10px 0;
+}
+</style>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+	integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+	integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
+
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+
+
+	<!-- Optional JavaScript; choose one of the two! -->
+
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+
+	<!-- Option 2: Separate Popper and Bootstrap JS -->
+	<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    --><div class="container-fluid">
+	
+		<header class="p-3">
+
+			<div class="container1-fluid">
+				<div class="d-flex  flex-wrap">
+
+
+					<img src="http://www.synergy5m.com/images/logo.jpg" height="58"
+						width="120" alt="hi" />
+
+
+					<h1 id="hh" class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PRODUCT MASTER</h1>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+					<i class="bi bi-telephone-plus-fill"
+						style="font-size: 20px; color: green; margin-top: 10px;"></i>
+					<table>
+						<tr>
+							<th>&nbsp;&nbsp;Contact Us</th>
+						</tr>
+						<tr>
+							<td>+91 9175670857</td>
+						</tr>
+					</table>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i
+						class="bi bi-briefcase-fill"
+						style="font-size: 20px; color: green; margin-top: 10px;"></i>
+					<table>
+						<tr>
+							<th>Email</th>
+						</tr>
+						<tr>
+							<td><a href="mailto:info@synergy5M.com">info@synergy5M.com
+							</a></td>
+						</tr>
+					</table>
+
+
+
+				</div>
+
+
+
+	
+		</div>
+	</div>
+	</header>
+	
+	
+	<div class="container-fluid">
+		<header>
+
+
+			<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+				<button class="openButton" onclick="openForm()">
+					<i class="bi bi-search" style="font-size: 24px;"></i>
+				</button>
+				<button type="button" class="btn btn-warning" class="right">
+					<strong>Login</strong>
+				</button>
+				<a href="<%=request.getContextPath()%>/new"
+					class="btn btn-success pt-3">Add User
+					<div>
+						<i class="bi bi-person"></i>
+					</div>
+				</a>
+
+
+
+
+			</div>
+		</header>
+
+	</div>
+
+</div>
+
+	<div class="loginPopup">
+		<div class="formPopup" id="popupForm">
+			<form method="post" name="frm" action="search" class="formContainer">
+
+
+
+
+				<table>
+					<tr>
+						<td><label>PRODUCT_NAME</label></td>
+						<td>:</td>
+                        <td><input type="text" id="product_name" name="product_name"
+							onchange="SelectedTextValue(this)"> <input type="text"
+							id="txtContent" name="txtContent" value="" hidden /><br /></td>
+						<td>
+							<button type="button" id="closebtn" class="btn1 cancel btn1-xs float-end" onclick="closeForm()" style="height:50;width:50;margin-top:-0.1rem;border-radius: 5px;">
+								<i class="bi bi-x" style="height:60;width:60; color: white;margin-top:1.6rem;margin-left:-0.4rem"></i>		
+								</button>
+						</td>
+					</tr>
+					<tr>
+						<td><label>MANUFACTURER</label></td>
+						<td>:</td>
+                        <td><input type="text" id="manufacturer" name="manufacturer"
+							onchange="SelectedTextValue1(this)"> <input type="text"
+							id="txtContent1" name="txtContent1" value="" hidden /><br /></td>
+		
+					</tr>
+					<tr>
+						<td><label>COUNTRY</label></td>
+						<td>:</td>
+						<td><select id="country" name="country"
+							onchange="SelectedTextValue2(this)">
+								<option selected="selected" value="">Select Country</option>
+
+						</select> <input type="text" id="txtContent2" name="txtContent2" value=""
+							hidden /></td>
+					</tr>
+					
+				</table>
+
+
+				<button type="submit" class="btn btn-sm" name="submit"
+					value="Search">SEARCH</button>
+
+
+
+
+			</form>
+
+
+			<script>
+				cntry = "";
+				var obj4 = {
+					"0" : "SELECT COUNTRY",
+					"1" : "AFGHANISTAN",
+					"2" : "ALBANIA",
+					"3" : "ALGERIA",
+					"4" : "ANDORRA",
+					"5" : "ANGOLA",
+					"6" : "ANTIGUA AND BARBUDA",
+					"7" : "ARGENTINA",
+					"8" : "ARMENIA",
+					"9" : "AUSTRALIA",
+					"10" : "AUSTRIA",
+					"11" : "AZERBAIJAN",
+					"12" : "BAHAMAS",
+					"13" : "BAHRAIN",
+					"14" : "BANGLADESH",
+					"15" : "BARBADOS",
+					"16" : "BELARUS",
+					"17" : "BELGIUM",
+					"18" : "BELIZE",
+					"19" : "BENIN",
+					"20" : "BHUTAN",
+					"21" : "BOLIVIA",
+					"22" : "BOSNIA AND HERZEGOVINA",
+					"23" : "BOTSWANA",
+					"24" : "BRAZIL",
+					"25" : "BRUNEI",
+					"26" : "BULGARIA",
+					"27" : "BURKINA FASO",
+					"28" : "BURUNDI",
+					"29" : "CABO VERDE",
+					"30" : "CAMBODIA",
+					"31" : "CAMEROON",
+					"32" : "CANADA",
+					"33" : "CENTRAL AFRICAN REPUBLIC",
+					"34" : "CHAD",
+					"35" : "CHILE",
+					"36" : "CHINA",
+					"37" : "COLOMBIA",
+					"38" : "COMOROS",
+					"39" : "CONGO",
+					"40" : "COSTA RICA",
+					"41" : "COTE D IVOIRE",
+					"42" : "CROATIA",
+					"43" : "CUBA",
+					"44" : "CYPRUS",
+					"45" : "CZECH REPUBLIC (CZECHIA)",
+					"46" : "DENMARK",
+					"47" : "DJIBOUTI",
+					"48" : "DOMINICA",
+					"49" : "DOMINICAN REPUBLIC",
+					"50" : "DR CONGO",
+					"51" : "ECUADOR",
+					"52" : "EGYPT",
+					"53" : "ELSALVADOR",
+					"54" : "EQUATORIALGUINEA",
+					"55" : "ERITREA",
+					"56" : "ESTONIA",
+					"57" : "ESWATINI",
+					"58" : "ETHIOPIA",
+					"59" : "FIJI",
+					"60" : "FINLAND",
+					"61" : "FRANCE",
+					"62" : "GABON",
+					"63" : "GAMBIA",
+					"64" : "GEORGIA",
+					"65" : "GERMANY",
+					"66" : "GHANA",
+					"67" : "GREECE",
+					"68" : "GRENADA",
+					"69" : "GUATEMALA",
+					"70" : "GUINEA",
+					"71" : "GUINEA BISSAU",
+					"72" : "GUYANA",
+					"73" : "HAITI",
+					"74" : "HOLY SEE",
+					"75" : "HONDURAS",
+					"76" : "HUNGARY",
+					"77" : "ICELAND",
+					"78" : "INDIA",
+					"79" : "INDONESIA",
+					"80" : "IRAN",
+					"81" : "IRAQ",
+					"82" : "IRELAND",
+					"83" : "ISRAEL",
+					"84" : "ITALY",
+					"85" : "JAMAICA",
+					"86" : "JAPAN",
+					"87" : "JORDAN",
+					"88" : "KAZAKHSTAN",
+					"89" : "KENYA",
+					"90" : "KIRIBATI",
+					"91" : "KUWAIT",
+					"92" : "KYRGYZSTAN",
+					"93" : "LAOS",
+					"94" : "LATVIA",
+					"95" : "LEBANON",
+					"96" : "LESOTHO",
+					"97" : "LIBERIA",
+					"98" : "LIBYA",
+					"99" : "LIECHTENSTEIN",
+					"100" : "LITHUANIA",
+					"101" : "LUXEMBOURG",
+					"102" : "MADAGASCAR",
+					"103" : "MALAWI",
+					"104" : "MALAYSIA",
+					"105" : "MALDIVES",
+					"106" : "MALI",
+					"107" : "MALTA",
+					"108" : "MARSHALL ISLANDS",
+					"109" : "MAURITANIA",
+					"110" : "MAURITIUS",
+					"111" : "MEXICO",
+					"112" : "MICRONESIA",
+					"113" : "MOLDOVA",
+					"114" : "MONACO",
+					"115" : "MONGOLIA",
+					"116" : "MONTENEGRO",
+					"117" : "MOROCCO",
+					"118" : "MOZAMBIQUE",
+					"119" : "MYANMAR",
+					"120" : "NAMIBIA",
+					"121" : "NAURU",
+					"122" : "NEPAL",
+					"123" : "NETHERLANDS",
+					"124" : "NEW ZEALAND",
+					"125" : "NICARAGUA",
+					"126" : "NIGER",
+					"127" : "NIGERIA",
+					"128" : "NORTH KOREA",
+					"129" : "NORTH MACEDONIA",
+					"130" : "NORWAY",
+					"131" : "OMAN",
+					"132" : "PAKISTAN",
+					"133" : "PALAU",
+					"134" : "PANAMA",
+					"135" : "PAPUA NEW GUINEA",
+					"136" : "PARAGUAY",
+					"137" : "PERU",
+					"138" : "PHILIPPINES",
+					"139" : "POLAND",
+					"140" : "PORTUGAL",
+					"141" : "QATAR",
+					"142" : "ROMANIA",
+					"143" : "RUSSIA",
+					"144" : "RWANDA",
+					"145" : "SAINT KITTS AND NEVIS",
+					"146" : "SAINT LUCIA",
+					"147" : "SAMOA",
+					"148" : "SAN MARINO",
+					"149" : "SAO TOME AND PRINCIPE",
+					"150" : "SAUDI ARABIA",
+					"151" : "SENEGAL",
+					"152" : "SERBIA",
+					"153" : "SEYCHELLES",
+					"154" : "SIERRA LEONE",
+					"155" : "SINGAPORE",
+					"156" : "SLOVAKIA",
+					"157" : "SLOVENIA",
+					"158" : "SOLOMON ISLANDS",
+					"159" : "SOMALIA",
+					"160" : "SOUTH AFRICA",
+					"161" : "SOUTH KOREA",
+					"162" : "SOUTH SUDAN",
+					"163" : "SPAIN",
+					"164" : "SRI LANKA",
+					"165" : "ST. VINCENT AND GRENADINES",
+					"166" : "STATE OF PALESTINE",
+					"167" : "SUDAN",
+					"168" : "SURINAME",
+					"169" : "SWEDEN",
+					"170" : "SWITZERLAND",
+					"171" : "SYRIA",
+					"172" : "TAIWAN",
+					"173" : "TAJIKISTAN",
+					"174" : "TANZANIA",
+					"175" : "THAILAND",
+					"176" : "TIMOR-LESTE",
+					"177" : "TOGO",
+					"178" : "TONGA",
+					"179" : "TRINIDAD AND TOBAGO",
+					"180" : "TUNISIA",
+					"181" : "TURKEY",
+					"182" : "TURKMENISTAN",
+					"183" : "TUVALU",
+					"184" : "UGANDA",
+					"185" : "UKRAINE",
+					"186" : "UNITED ARAB EMIRATES",
+					"187" : "UNITED KINGDOM",
+					"188" : "UNITED STATES",
+					"189" : "URUGUAY",
+					"190" : "UZBEKISTAN",
+					"191" : "VANUATU",
+					"192" : "VENEZUELA",
+					"193" : "VIETNAM",
+					"194" : "YEMEN",
+					"195" : "ZAMBIA",
+					"196" : "ZIMBABWE"
+
+				}
+
+				for ( var key in obj4) {
+					cntry += "<option value=" + key  + ">" + obj4[key]
+							+ "</option>"
+				}
+				document.getElementById("country").innerHTML = cntry;
+			</script>
+			
+
+			<script>
+				function SelectedTextValue(ele) {
+					if (ele.selectedIndex > 0) {
+						var selectedText = ele.options[ele.selectedIndex].innerHTML;
+						var selectedValue = ele.value;
+						document.getElementById("txtContent").value = selectedText;
+					} else {
+						document.getElementById("txtContent").value = "";
+					}
+				}
+				function SelectedTextValue5(ele) {
+					if (ele.selectedIndex > 0) {
+						var selectedText = ele.options[ele.selectedIndex].innerHTML;
+						var selectedValue = ele.value;
+						document.getElementById("txtContent1").value = selectedText;
+					} else {
+						document.getElementById("txtContent1").value = "";
+					}
+				}
+				function SelectedTextValue8(ele) {
+					if (ele.selectedIndex > 0) {
+						var selectedText = ele.options[ele.selectedIndex].innerHTML;
+						var selectedValue = ele.value;
+						document.getElementById("txtContent2").value = selectedText;
+					} else {
+						document.getElementById("txtContent2").value = "";
+					}
+				}
+				
+			</script>
+
+			<script>
+				function openForm() {
+					document.getElementById("popupForm").style.display = "block";
+				}
+				function closeForm() {
+					document.getElementById("popupForm").style.display = "none";
+				}
+			</script>
+
+			</table>
+		</div>
+	</div>
+</html>@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    { 

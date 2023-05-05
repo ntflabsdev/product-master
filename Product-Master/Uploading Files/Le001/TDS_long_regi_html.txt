@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiStep SignupForm</title>
+
+    <link rel="shortcut icon" href="#">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src=https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js></script>
+    <script src=https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js></script>
+    <script src=https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js></script>
+    <script src="firebase.Config.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <link rel="stylesheet" href="longReg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="multi-step-form-container">
+            <h1>Registraition Form</h1>
+            <!-- Form Steps / Progress Bar -->
+            <ul class="form-stepper form-stepper-horizontal text-center
+                    mx-auto pl-0">
+                <!-- Step 1 -->
+                <li class="form-stepper-active text-center
+                        form-stepper-list" step="1">
+                    <a class="">
+                        <span class="form-stepper-circle">
+                            <span>1</span>
+                        </span>
+                        <div class="label">
+                            <h3>Create Profile</h3>
+                        </div>
+                    </a>
+                </li>
+                <!-- Step 2 -->
+                <li class="form-stepper-unfinished text-center
+                        form-stepper-list" step="2">
+                    <a class="mx-5">
+                        <span class="form-stepper-circle text-muted">
+                            <span>2</span>
+                        </span>
+                        <div class="label text-muted">
+                            <h3>Due Dilligence</h3>
+                        </div>
+                    </a>
+                </li>
+                <!-- Step 3 -->
+                <li class="form-stepper-unfinished text-center
+                        form-stepper-list" step="3">
+                    <a class="mx-5">
+                        <span class="form-stepper-circle text-muted">
+                            <span>3</span>
+                        </span>
+                        <div class="label text-muted">
+                            <h3>KYC</h3>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Step 4 -->
+                <li class="form-stepper-unfinished text-center
+                        form-stepper-list" step="4">
+                    <a class="mx-5">
+                        <span class="form-stepper-circle text-muted">
+                            <span>4</span>
+                        </span>
+                        <div class="label text-muted">
+                            <h3>Industry</h3>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Step 5 -->
+                <li class="form-stepper-unfinished text-center
+                        form-stepper-list" step="5">
+                    <a class="mx-5">
+                        <span class="form-stepper-circle text-muted">
+                            <span>5</span>
+                        </span>
+                        <div class="label text-muted">
+                            <h3>Business
+                                Information</h3>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Step 6 -->
+                <li class="form-stepper-unfinished text-center
+                        form-stepper-list" step="6">
+                    <a class="mx-5">
+                        <span class="form-stepper-circle text-muted">
+                            <span>6</span>
+                        </span>
+                        <div class="label text-muted">
+                            <h3>Submit</h3>
+                        </div>
+                    </a>
+                </li>
+
+
+            </ul>
+            <!-- Step Wise Form Content -->
+            <form id="userAccountSetupForm" name="userAccountSetupForm" enctype="multipart/form-data" method="POST">
+
+                <!-- Step 1 Content -->
+                <section id="step-1" class="form-step">
+                    <h2 class="font-normal">Create Profile</h2>
+                    <!-- Step 1 input fields -->
+                    <div class="mt-1">
+                        <form id="f1">
+                            <table class="t1">
+                                <tr>
+                                    <th>GST : </th>
+                                    <td><input id="gstid1" type="text"></td>
+                                    <td><button type="button" id="btn1">Click
+                                            Here To Verify</button></td>
+                                    <td><input type="text" value="Type otp
+                                                here"></td>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button id="successbtn1" type="button">Done</button></td>
+                                </tr>
+                                <tr>
+                                    <th>PAN : </th>
+                                    <td><input id="panid1" type="text"></td>
+                                    <td><button type="button" id="btn2">Click Here
+                                            To Verify</button></td>
+                                    <td><input type="text" value="Type otp here"></td>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button id="successbtn2" type="button">Done</button></td>
+                                </tr>
+                                <tr>
+                                    <th>TAN : </th>
+                                    <td><input id="tanid1" type="text"></td>
+                                    <td><button type="button" id="btn3">Click Here To
+                                            Verify</button></td>
+                                    <td><input type="text" value="Type otp here"></td>
+                                    </td>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                                <tr>
+                                    <td></td>
+                                    <td><button id="successbtn3" type="button">Done</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Uploads(If Any): <ol>
+                                            <li>GST :
+                                                <input type="checkbox" />
+                                                <input type="file" id="photo">
+
+                                                <button onclick="uploadimage()">Upload
+                                                    Image</button>
+                                            </li>
+
+
+                                            <li>PAN : <input type="checkbox" />
+                                                <input id="upload2" type="file" accept=".pdf" />
+                                            </li>
+                                            <li>TAN : <input type="checkbox" /><input id="upload3" type="file" accept=".pdf" /></li>
+                                        </ol>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+
+                        </form>
+                    </div>
+                    <div class="mt-3">
+                        <button id="s1" class="button btn-navigate-form-step" type="button" step_number="2">Next</button>
+                    </div>
+
+
+
+
+                </section>
+
+                <!-- Step 2 Content, default hidden on page load. -->
+                <section id="step-2" class="form-step d-none">
+                    <h2 class="font-normal">Due Dilligence</h2><br /><br />
+                    <!-- Step 2 input fields -->
+                    <div class="mt-1">
+                        <form>
+                            <p>Please Upload your Last Two Years Balance Sheet :
+                            </p>
+                            <input type="button" id="balancesheetid" value="Select Year">
+                            <select id="dueselect" value="selectedvalue">
+                                <option>select
+                                    year</option>
+                                <option>2022-21</option>
+                                <option>2021-20</option>
+                                <option>2020-19</option>
+                            </select>
+                            <input id="upload4" type="file" accept=".pdf" /><button type="button" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                    <div class="mt-3">
+                        <button id="s2" class="button btn-navigate-form-step" type="button" step_number="1">Prev</button>
+                        <button id="s3" class="button btn-navigate-form-step" type="button" step_number="3">Next</button>
+                    </div>
+                </section>
+
+                <!-- Step 3 Content, default hidden on page load. -->
+                <section id="step-3" class="form-step d-none">
+                    <h2 class="font-normal">KYC</h2><br /><br />
+                    <!-- Step 3 input fields -->
+                    <div class="mt-1">
+                        <!--<form class="kycform">
+                    <input type="radio" id="kyc" name="kyc" value="MSME/Aadhar Udyam" checked>MSME/Aadhar Udyam&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://app.digisign.id/login.html">Click here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="successbtn4" type="button">Verified</button>
+                    <br/><br/>
+
+                     <input type="radio" id="kyc" name="kyc" value="Pancard" checked>PAN Card&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://app.digisign.id/login.html">click here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="successbtn4" type="button">Verified</button>
+                    <br/><br/> 
+
+                    <input type="radio" id="kyc" name="kyc" value="IEC" checked>IEC &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="https://app.digisign.id/login.html">click here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button id="successbtn4" type="button">Verified</button>
+                    <br/><br/>-->
+                        <form class="kycform">
+                            <input type="checkbox" id="kyc1" name="kyc" value="MSME/Aadhar Udyam" />MSME/Aadhar
+                            Udyam&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://app.digisign.id/login.html">Click
+                                here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="successbtn4" type="button">Verified</button>
+                            <br /><br />
+
+                            <!--  <input type="checkbox" id="kyc" name="kyc" value="Pancard" />PAN Card&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://app.digisign.id/login.html">click here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button id="successbtn4" type="button">Verified</button>
+                        <br/><br/>  -->
+                            <input type="checkbox" id="kyc2" name="kyc" value="IEC" />IEC
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="https://app.digisign.id/login.html">click
+                                here</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button id="successbtn5" type="button">Verified</button>
+                            <br /><br />
+
+                        </form>
+                    </div>
+                    <div class="mt-3">
+                        <button id="s4" class="button
+                                                    btn-navigate-form-step" type="button" step_number="2">Prev</button>
+                        <button id="s5" class="button
+                                                    btn-navigate-form-step" type="button" step_number="4">Next</button>
+                    </div>
+                </section>
+
+                <!-- Step 4 Content, default hidden on page load. -->
+                <section id="step-4" class="form-step
+                                            d-none">
+
+                    <!--industry-by-json-->
+                    <h4>Industry</h4>
+                    <div class="mt-1">
+
+                        <select id="indu" onchange="SelectedTextValue(this)">
+                            <option selected="selected" value="">Select Industry
+                                : </option>
+                        </select>
+                        <input type="text" id="txtContent" /><br /><br />
+                    </div>
+
+
+                    <!--category-->
+                    <h4>Category</h4>
+                    <div class="mt-2">
+                        <!--category-json-->
+                        <select id="category" onchange="SelectedTextValue5(this)">
+                            <option selected="selected" value="">Select
+                                Category :
+                            </option>
+                        </select>
+                        <input type="text" id="txtContent5" />
+                    </div> <br /><br />
+                    <!--subcat-json-->
+                    <h4>Subcategory</h4>
+                    <div class="mt-3">
+                        <select id="subcategory" onchange="SelectedTextValue8(this)">
+                            <option selected="selected" value="">Select
+                                SubCategory
+                                :
+                            </option>
+                        </select>
+                        <input type="text" id="txtContent8" />
+                    </div>
+                    <div class="mt-4">
+                        <button id="s6" class="button
+                btn-navigate-form-step" type="button" step_number="3">Prev</button>
+                        <button id="s7" class="button
+                btn-navigate-form-step" type="button" step_number="5">Next</button>
+                    </div>
+                </section>
+                <!-- Step 5 Content, default hidden on page load. -->
+                <section id="step-5" class="form-step
+        d-none">
+                    <h2 class="font-normal">Business
+                        Information</h2>
+                    <!-- Step 5 input fields -->
+                    <div class="mt-1">
+                        <!--   <button id="down" class="btn"><a href="./Event-Budget-Excel-Template.xlsx">Download Form Here</a></button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button id="up" class="btn">Upload&nbsp;&nbsp;<input id="upload5" type="file"  accept=".pdf"/></button><br/><br/> -->
+                        <form>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h4>1.Head office Details
+                                            :
+                                        </h4>
+                                    </td>
+                                </tr>
+
+                                <table border="2">
+                                    <tr>
+
+                                        <th>Address</th>
+                                        <th>Country</th>
+                                        <th>State</th>
+                                        <th>City</th>
+                                        <th>Contact Details</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" id="pin" />
+                                        </td>
+                                        <td>
+                                            <select id="country" onchange="SelectedTextValue(this)">
+                                                <option selected="selected" value="">Select Country
+                                                    : </option>
+                                            </select>
+                                            <input type="text" id="txtContent" hidden />
+                                        </td>
+                                        </td>
+                                        <td><select name="state" id="state"></select></td>
+                                        <td><select name="city" id="city"></select></td>
+
+
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>1.Phone</td>
+                                                    <td><input id="num1" type="number"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2.Fax</td>
+                                                    <td><input id="num2" type="number"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3.Email</td>
+                                                    <td><input id="num3" type="email"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>4.Website</td>
+                                                    <td><input id="num4" type="url"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                </tr>
+                                <br />
+                                <tr>
+                                    <h4>2.
+                                        Year
+                                        Of
+                                        Establishment
+                                        &nbsp;&nbsp;&nbsp;<td>:</td>&nbsp;&nbsp;&nbsp;<td><input id="yearesta" type="date" style="margin-left:
+                                        38px;"></td>
+                                    </h4>
+                                </tr>
+                                <tr>
+                                    <h4>3.Type
+                                        of
+                                        company
+                                        Registration
+                                        &nbsp;<td>:</td>&nbsp;
+                                        <select name="nature-of-company" id="nature-of-company1">
+                                            <option value="">&nbsp;</option>
+                                            <option value="limited
+                                        liability
+                                        partnership">1.Limited
+                                                Liability
+                                                Partnership</option>
+                                            <option value="partnerships">2.Partnerships</option>
+                                            <option value="private
+                                        limited
+                                        company">3.Private
+                                                Limited
+                                                Company</option>
+                                            <option value="public
+                                        limited
+                                        company">4.Public
+                                                Limited
+                                                Company</option>
+                                            <option value="sole
+                                        proprietorship">5.Sole
+                                                Proprietorship</option>
+                                        </select>
+                                    </h4>
+                                </tr>
+                                <tr>
+                                    <h4>4.Nature
+                                        of
+                                        Bussiness
+                                        &nbsp;<td>:</td>&nbsp;
+                                        <select name="nature-of-business" id="nature-of-company2" style="margin-left:
+                                    70px;">
+                                            <option value="">&nbsp;</option>
+                                            <option value="authorised
+                                        distributer">1.Authorised
+                                                Distributer</option>
+                                            <option value="importer">2.Importer</option>
+                                            <option value="manufacturer">3.Manufacturer</option>
+                                            <option value="service
+                                        provider">4.Service
+                                                Provider</option>
+                                            <option value="trader">5.Trader</option>
+                                        </select>
+                                    </h4>
+                                </tr>
+                                <tr>
+                                    <h4>5.Certification
+                                        :
+                                    </h4>
+                                    <input type="radio" id="cer1" name="fav_language" value="yes" onclick="show1();">
+                                <tr for="html">Yes</tr>
+                                <input type="radio" id="cer2" name="fav_language" value="no" onclick="show2();">
+                                <tr for="css">No</tr>
+                                <div id="div1" class="hide"><input type="file" id="div5"></div>
+                                <div id="div2" class="hide">
+                                </div>
+                                <style>
+                                    .hide {
+                                        display: none;
+                                    }
+
+                                    p {
+                                        font-weight: bold;
+                                    }
+                                </style>
+                                <tr>
+                                    <h4>7.Vendor
+                                        Type
+                                        :
+                                    </h4>
+                                    <input type="radio" onchange="window.location.replace('manufacturer.html')">Manufacturer
+                                    <input type="radio" onchange="window.location.replace('trader.html')">Trader/Service
+                                    Provider
+                                    <div class="mt-3">
+                                        <button class="button
+                                        btn-navigate-form-step" id="s8" type="button" step_number="4">Prev</button>
+                                        <button class="button
+                                        btn-navigate-form-step" id="s9" onclick="preview()" type="button" step_number="6">Next</button>
+                                    </div>
+                        </form>
+                    </div>
+                </section>
+                <!-- Step 6 Content, default hidden on page load. -->
+                <section id="step-6" class="form-step
+                        d-none">
+                    <h2 class="font-normal">Preview</h2>
+                    <table>
+                        <tr>
+                            <th>GST</th>
+                            <td>:</td>
+                            <td id="d1"></td>
+                            <td id="up1"></td>
+                        </tr>
+                        <tr>
+                            <th>PAN</th>
+                            <td>:</td>
+                            <td id="d2"></td>
+                            <td id="up2"></td>
+                        </tr>
+                        <tr>
+                            <th>TAN</th>
+                            <td>:</td>
+                            <td id="d3"></td>
+                            <td id="up3"></td>
+                        </tr>
+                        <tr>
+                            <th>Due
+                                Dilligence</th>
+                            <td>:</td>
+                            <td id="up6"></td>
+                            <td id="up4"></td>
+                        </tr>
+                        <tr>
+                            <th>KYC-MSME/Aadhar
+                                Udhyam</th>
+                            <td>:</td>
+                            <td id="d5"></td>
+                        </tr>
+                        <tr>
+                            <th>KYC-IEC</th>
+                            <td>:</td>
+                            <td id="d6"></td>
+                        </tr>
+                        <tr>
+                            <th>Industry</th>
+                            <td>:</td>
+                            <td id="up7"></td>
+                        </tr>
+                        <tr>
+                            <th>Category</th>
+                            <td>:</td>
+                            <td id="up8"></td>
+                        </tr>
+                        <tr>
+                            <th>Subcategory</th>
+                            <td>:</td>
+                            <td id="up9"></td>
+                        </tr>
+                        <tr>
+                            <th>Business
+                                Information-Head_office</th>
+                            <td>:</td>
+
+                            <td>
+                                <table border="1">
+
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>:</td>
+                                        <td id="location"></td>
+
+                                        <td>Country</td>
+                                        <td>:</td>
+                                        <td id="con"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>State</td>
+                                        <td>:</td>
+                                        <td id="stat"></td>
+
+                                        <td>City</td>
+                                        <td>:</td>
+                                        <td id="cit"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th>Phone</th>
+                            <td>:</td>
+                            <td id="ph1"></td>
+                        </tr>
+                        <tr>
+                            <th>Fax</th>
+                            <td>:</td>
+                            <td id="f1"></td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>:</td>
+                            <td id="em1"></td>
+                        </tr>
+                        <tr>
+                            <th>Website</th>
+                            <td>:</td>
+                            <td id="we1"></td>
+                        </tr>
+                        <tr>
+                            <th>Year Of Establishment</th>
+                            <td>:</td>
+                            <td id="es1"></td>
+                        </tr>
+                        <tr>
+                            <th>Nature Of Company</th>
+                            <td>:</td>
+                            <td id="com1"></td>
+                        </tr>
+                        <tr>
+                            <th>Nature Of Buisiness</th>
+                            <td>:</td>
+                            <td id="com2"></td>
+                        </tr>
+                        <tr>
+                            <th>Certification</th>
+                            <td>:</td>
+                            <td id="certi"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Before
+                                Submiting
+                                Your
+                                Data
+                                Kindly
+                                Check
+                                Our
+                                Terms
+                                And
+                                Conditions.</td>
+                            <td><input type="checkbox"><a href="./termesncoditions.html">Click
+                                    Me</a></td>
+                        </tr>
+                        <tr>
+                            <th>
+                            <td><button type="button" onclick="welcome()">Submit</button></td>
+                            </th>
+                        </tr>
+                    </table>
+                    <div>
+                        <button class="button
+                                btn-navigate-form-step" type="button" step_number="5">Prev</button>
+                        <button class="submit-btn" type="submit" onclick="addData()">Save</button>
+                    </div>
+        </div>
+        </section>
+        <script src="longReg.js"></script>
+</body>
+
+</html>

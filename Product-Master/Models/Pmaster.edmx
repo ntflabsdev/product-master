@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProductMasterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="externaluser_regifrom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="email_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="contact_no" Type="int" />
+          <Property Name="contact_person" Type="nvarchar" MaxLength="50" />
+          <Property Name="gst_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="pan_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="tan_no" Type="nvarchar" MaxLength="50" />
+          <Property Name="dd_balancesheet" Type="nvarchar" MaxLength="500" />
+          <Property Name="kyc_msdeoraadharudyam" Type="nvarchar" MaxLength="500" />
+          <Property Name="kyc_iec" Type="nvarchar" MaxLength="500" />
+          <Property Name="indurstry" Type="nvarchar" MaxLength="50" />
+          <Property Name="indurstry_category" Type="nvarchar" MaxLength="50" />
+          <Property Name="indurstry_subcategory" Type="nvarchar" MaxLength="50" />
+          <Property Name="bi_headoffice_address" Type="nvarchar" MaxLength="50" />
+          <Property Name="bi_headoffice_country" Type="nvarchar" MaxLength="50" />
+          <Property Name="bi_headoffice_state" Type="nvarchar" MaxLength="50" />
+          <Property Name="bi_headoffice_city" Type="nvarchar" MaxLength="50" />
+          <Property Name="bi_headoffice_fax" Type="int" />
+          <Property Name="bi_headoffice_companywebsite" Type="nvarchar" MaxLength="50" />
+          <Property Name="type_of_establishment" Type="date" />
+          <Property Name="type_of_companyregistration" Type="nvarchar" MaxLength="50" />
+          <Property Name="nature_of_business" Type="nvarchar" MaxLength="50" />
+          <Property Name="certification" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="internaluser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="designation" Type="nvarchar" MaxLength="50" />
+          <Property Name="employee_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="email_id" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unit_Of_Measurement" Type="nvarchar" MaxLength="50" />
+          <Property Name="HS_Code" Type="int" />
+          <Property Name="Manufacturer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="TDS" Type="nvarchar" MaxLength="500" />
+          <Property Name="MSDS" Type="nvarchar" MaxLength="500" />
+          <Property Name="Free_Trade_Agreement" Type="nvarchar" MaxLength="500" />
+          <Property Name="Image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="usertype" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="ProductMasterModelStoreContainer">
+          <EntitySet Name="externaluser_regifrom" EntityType="Self.externaluser_regifrom" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="internaluser" EntityType="Self.internaluser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProductMasterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="externaluser_regifrom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contact_no" Type="Int32" />
+          <Property Name="contact_person" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gst_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pan_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tan_no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dd_balancesheet" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="kyc_msdeoraadharudyam" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="kyc_iec" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="indurstry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="indurstry_category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="indurstry_subcategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bi_headoffice_address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bi_headoffice_country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bi_headoffice_state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bi_headoffice_city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bi_headoffice_fax" Type="Int32" />
+          <Property Name="bi_headoffice_companywebsite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="type_of_establishment" Type="DateTime" Precision="0" />
+          <Property Name="type_of_companyregistration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nature_of_business" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="certification" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="internaluser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="employee_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unit_Of_Measurement" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HS_Code" Type="Int32" />
+          <Property Name="Manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TDS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MSDS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Free_Trade_Agreement" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="usertype" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ProductMasterEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="externaluser_regifrom" EntityType="Self.externaluser_regifrom" />
+          <EntitySet Name="internalusers" EntityType="Self.internaluser" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="userlogins" EntityType="Self.userlogin" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProductMasterModelStoreContainer" CdmEntityContainer="ProductMasterEntities">
+          <EntitySetMapping Name="externaluser_regifrom">
+            <EntityTypeMapping TypeName="ProductMasterModel.externaluser_regifrom">
+              <MappingFragment StoreEntitySet="externaluser_regifrom">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="contact_no" ColumnName="contact_no" />
+                <ScalarProperty Name="contact_person" ColumnName="contact_person" />
+                <ScalarProperty Name="gst_no" ColumnName="gst_no" />
+                <ScalarProperty Name="pan_no" ColumnName="pan_no" />
+                <ScalarProperty Name="tan_no" ColumnName="tan_no" />
+                <ScalarProperty Name="dd_balancesheet" ColumnName="dd_balancesheet" />
+                <ScalarProperty Name="kyc_msdeoraadharudyam" ColumnName="kyc_msdeoraadharudyam" />
+                <ScalarProperty Name="kyc_iec" ColumnName="kyc_iec" />
+                <ScalarProperty Name="indurstry" ColumnName="indurstry" />
+                <ScalarProperty Name="indurstry_category" ColumnName="indurstry_category" />
+                <ScalarProperty Name="indurstry_subcategory" ColumnName="indurstry_subcategory" />
+                <ScalarProperty Name="bi_headoffice_address" ColumnName="bi_headoffice_address" />
+                <ScalarProperty Name="bi_headoffice_country" ColumnName="bi_headoffice_country" />
+                <ScalarProperty Name="bi_headoffice_state" ColumnName="bi_headoffice_state" />
+                <ScalarProperty Name="bi_headoffice_city" ColumnName="bi_headoffice_city" />
+                <ScalarProperty Name="bi_headoffice_fax" ColumnName="bi_headoffice_fax" />
+                <ScalarProperty Name="bi_headoffice_companywebsite" ColumnName="bi_headoffice_companywebsite" />
+                <ScalarProperty Name="type_of_establishment" ColumnName="type_of_establishment" />
+                <ScalarProperty Name="type_of_companyregistration" ColumnName="type_of_companyregistration" />
+                <ScalarProperty Name="nature_of_business" ColumnName="nature_of_business" />
+                <ScalarProperty Name="certification" ColumnName="certification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="internalusers">
+            <EntityTypeMapping TypeName="ProductMasterModel.internaluser">
+              <MappingFragment StoreEntitySet="internaluser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="designation" ColumnName="designation" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ProductMasterModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Product_Code" ColumnName="Product_Code" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Grade" ColumnName="Grade" />
+                <ScalarProperty Name="Unit_Of_Measurement" ColumnName="Unit_Of_Measurement" />
+                <ScalarProperty Name="HS_Code" ColumnName="HS_Code" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="TDS" ColumnName="TDS" />
+                <ScalarProperty Name="MSDS" ColumnName="MSDS" />
+                <ScalarProperty Name="Free_Trade_Agreement" ColumnName="Free_Trade_Agreement" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userlogins">
+            <EntityTypeMapping TypeName="ProductMasterModel.userlogin">
+              <MappingFragment StoreEntitySet="userlogin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

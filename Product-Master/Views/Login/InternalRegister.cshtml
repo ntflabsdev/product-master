@@ -1,0 +1,176 @@
+﻿@model Product_Master.Models.RegisterInternal
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .row {
+        margin-bottom: 10Px;
+    }
+
+    .btn-success1 {
+        text-align: center;
+        margin: auto;
+        color: #fff;
+        background-color: #69ba71;
+        border-color: #4d6066ee;
+        width: 80px;
+        height: 45px;
+    }
+
+    .validatefield {
+        color: red;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+    @using (Html.BeginForm("InternalRegister", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+    <div class="form-horizontal">
+        @if (ViewBag.Message != null)
+            {
+        <span>
+            @ViewBag.Message
+        </span>
+            }
+    </div>
+    @*<div>
+            @Html.HiddenFor(model => model.Id)
+        </div>*@
+
+
+    <div class="row">
+        <div class="col-md-2">
+            <label for="first name"><b>First Name</b></label>
+            <label id="validFirst" class="validatefield" style="display:none;">*</label>
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.first_name, new { @class = "form-control", value = "" })
+        </div>
+        <div class="col-md-2">
+            <label for="last name"><b>Last Name</b></label>
+            <label id="validLastName" class="validatefield" style="display:none;">*</label>
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.last_name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label for="address"><b>Address</b></label>
+            <label id="validAddress" class="validatefield" style="display:none;">*</label>
+        </div>
+
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.address, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <label for="designation"><b>Designation</b></label>
+            <label id="validDesignation" class="validatefield" style="display:none;">*</label>
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.designation, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label for="Emp_id"><b>Employee_Id</b></label>
+            <label id="validEmployee_id" class="validatefield" style="display:none;">*</label>
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.employee_id, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <label for="email_id"><b>Email_Id</b></label>
+            <label id="validEmail_id" class="validatefield" style="display:none;">*</label>
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.email_id, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label><b>Password</b></label>
+            <label id="validPassword" class="validatefield" style="display:none;">*</label>
+        </div>
+        <div class="col-md-4">
+            @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <label><b>Confirm Password</b></label>
+        </div>
+        <div class="col-md-4">
+            @Html.PasswordFor(model => model.confirmPassword, new { @class = "form-control" })
+            <label id="validComfirmPassword" class="validatefield" style="display:none;">*</label>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+        <div style="padding-left:450px">
+            <input type="submit" class="btn-success1" value="Submit" id="btnSubmit" />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $('#btnSubmit').on("click", function (event) {
+            if ($("#frist_name").val() === '') {
+                $('#validFirstName').show();
+            } else {
+                $('#validFirstName').hide();
+            }
+            if ($("#last_name").val() === '')
+                $('#validLastName').show();
+            else {
+                $('#validLastName').hide();
+            }
+            if ($("#address").val() === '')
+                $('#validAddress').show();
+            else {
+                $('#validAddress').hide();
+            }
+            if ($("#designation").val() === '')
+                $('#validDesignation').show();
+            else {
+                $('#validDeaignation').hide();
+            }
+            if ($("#employee_id").val() === '')
+                $('#validEmployee_id').show();
+            else {
+                $('#validEmployee_id').hide();
+            }
+            if ($("#email_id").val() === '')
+                $('#validEmail_id').show();
+            else {
+                $('#validEmail_id').hide();
+            }
+            if ($("#password").val() === '')
+                $('#validPassword').show();
+            else {
+                $('#validPassword').hide();
+            }
+
+            if ($("#confirmPassword").val() === '')
+                $('#validComfirmPassword').show();
+            else {
+                $('#validComfirmPassword').hide();
+            }
+
+            if ($("#password").val() !== $("#confirmPassword").val())
+                $('#validPassword').text("Password and Confirm Password not match");
+
+            if (IsEmail($("#email_id").val()) == false) {
+                $('#invalid_email').text("Enter valid Email");
+                return false;
+            }
+            return false;
+        });
+
+
+    </script>
+    }
+</div>
+

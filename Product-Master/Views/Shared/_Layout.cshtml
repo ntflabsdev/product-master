@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/CustomStyleSheet.css" />
+    <script src="~/Scripts/JS_Datatable.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+
+<body>
+    @Html.Partial("_header")
+
+
+
+
+    <div class="container body-content">
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Select User Type</h2>
+                </div>
+                <div class="modal-body">
+                    @Html.RadioButton("usertype", "Internal User", false) Internal User
+                    @Html.RadioButton("usertype", "External User", false) External User
+                </div>
+                <div class="modal-footer">
+                    <span class="close">&times;</span>
+                </div>
+            </div>
+        </div>
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <div class="footer-cont">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo-cont"><img src="~/Image/logo.jpeg" height="60" width="100"></div>
+                            <p>
+                                501, Fortuna Business Center, Opp. McDonald, Shivar Chowk, Pimple Saudagar, Pune - 411027.<br />Maharasthra, India.<br />
+                                info@synergy5M.com<br />
+                                + 91 78210 11140 / + 91 94235 79446
+                            </p>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4">
+                            <h3>Tags</h3>
+                            <div class="tag-links">
+                                <a href="javascript:;">Product Name</a>
+                                <a href="javascript:;">Grade</a>
+                                <a href="javascript:;">Manufrature</a>
+                                <a href="javascript:;">Country</a>
+                                @*<a href="javascript:;">Money</a>
+                                    <a href="javascript:;">Sourcing</a>
+                                    <a href="javascript:;">Procurement</a>
+                                    <a href="javascript:;">Purchase</a>
+                                    <a href="javascript:;">Materials Management</a>
+                                    <a href="javascript:;">Associate Supplier</a>
+                                    <a href="javascript:;">Supplier Network</a>*@
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-md-4">
+                            <h3>Menu</h3>
+                            <div class="row">
+                                <div class="col-sm-6 col-md-6">
+                                    <ul class="menu-links">
+                                        <li><a href="/">Login</a></li>
+                                        <li><a href="/Home/About">Add</a></li>
+                                        <li><a href="/#synchronize5m">Search<span class="txt">Product</span></a></li>
+                                        <li><a href="/Home/About">Logout</a></li>
+                                        @*<li><a href="/Home/HowItWork">How It Works</a></li>
+                                            <li><a href="/Home/IndustryUsers">Industry Users</a></li>*@
+                                    </ul>
+                                </div>
+                                @*<div class="col-sm-6 col-md-6">
+                                            <ul class="menu-links">
+                                                <li><a href="/Home/Associates">Associates</a></li>
+                                                <li><a href="/Home/Pricing">Pricing</a></li>
+                                                <li><a href="/Home/Franchise">Franchise</a></li>
+                                                <li><a href="/Home/Indentmgmt">Indent Mgmt</a></li>
+                                                <li><a href="/Home/Contact">Contact Us</a></li>
+                                                <li><a href="/Account/Login">Login</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+        </footer>
+    </div>
+
+
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                //modal.style.display = "none";
+            }
+        }
+
+        $('#usertype').click(function () {
+            debugger;
+            var usertype = $('#usertype').val();
+            window.location.href = '/Login/Login?usertype=' + usertype;
+        })
+
+
+    </script>
+</body>
+</html>

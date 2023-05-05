@@ -1,0 +1,90 @@
+﻿@model Product_Master.Models.externaluser_regifrom
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .row {
+        margin-bottom: 10Px;
+    }
+    .btn_next {
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 20px;
+        background-color:#83f277;
+        color: black;
+    }
+    }
+    
+           
+
+</style>
+<div class="container">
+    @using (Html.BeginForm("Login", "InternalRegister", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="form-horizontal">
+            @if (ViewBag.Message != null)
+            {
+                <span>
+                    @ViewBag.Message
+                </span>
+            }
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-2"> <label for="company_name"><b>company_name</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.company_name, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2"> <label for="contact_no"><b>Contact_no</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.contact_no, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"> <label for="contact_person"><b>Contact_Person</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.contact_person, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2"> <label for="email.id"><b>Email_Id</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.email_id, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"> <label for="gst_no"><b>GST_No</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.gst_no, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2"> <label for="pan_no"><b>PAN_No</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.pan_no, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"> <label for="tan_no"><b>TAN_No</b></label></div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.tan_no, new { @class = "form-control" })
+            </div>
+            <div class="col-md-2"><label><b>Password</b></label></div>
+            <div class="col-md-4">
+                <input type="password" name="psw" required="" class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"><label for="psw"><b>Comfirm Password</b></label></div>
+            <div class="col-md-4">
+                <input type="password" name="psw" required="" class="form-control">
+
+            </div>
+            <div class="col-md-2">
+                <input type="button" name="Next"value="Next >>"class="btn_next" />
+            </div>
+        </div>
+
+     }
+
+</div>

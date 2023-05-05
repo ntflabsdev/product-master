@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Product_Master.Models.Product>
+    
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    div#ProductList_filter {
+        margin-bottom:10px;
+    }
+    h1{
+        text-align:center;
+    }
+</style>
+
+<div class="">
+    <div clss="row">
+        <table style="width:100%;" id="ProductList">
+            <thead style="background-color:#6d91e3;">
+                <tr>
+                    <th>Id</th>
+                    <th>Product Code</th>
+                    <th>Product Name</th>
+                    <th>Grade</th>
+                    <th>UOM</th>
+                    <th>HS Code</th>
+                    <th>Manufracturer</th>
+                    <th>Country</th>
+                    <th>TDS</th>
+                    <th>MSDS</th>
+                    <th>FTA</th>
+                    <th>Image</th>
+                    <th> </th>
+                    <th> </th>
+               </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.Id </td>
+                            <td> @item.Product_Code</td>
+                            <td> @item.Product_Name </td>
+                            <td>@item.Grade</td>
+                            <td>@item.Unit_Of_Measurement</td>
+                            <td> @item.HS_Code</td>
+                            <td>@item.Manufacturer </td>
+                            <td>@item.Country</td>
+                            <td><a href=" @item.TDS">Download</a></td>
+                            <td><a href=" @item.MSDS">Download</a></td>
+                            <td><a href=" @item.Free_Trade_Agreement">Download</a></td>
+                            <td> <img src="data:image;base64,@System.Convert.ToBase64String(item.Image)"width="50" height="50"/> </td>
+                            <td> <a href="/Product/Edit/@item.Id">Edit</a></td>
+                            <td><a href="/Product/Delete/@item.Id">Delete</a></td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        debugger;
+        $('#ProductList').DataTable();
+    });
+</script>
